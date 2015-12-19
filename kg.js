@@ -7,26 +7,26 @@
  * @param {String}  控制器元素
  * @param {Object}  参数集合（包括event,effect,scrollDir,scrollSpeed,scrollMode,timeout,index,callback）
  */ 
-function Focus(aTarget, aControl, opiton){
+function Focus(sTarget, sControl, opiton){
 	this.setOption(opiton);	
-	this.imgs = aTarget;
-	this.ctrs =  aControl ? aControl:null;
+	this.imgs = $(sTarget);
+	this.ctrs =  sControl ? $(sControl):null;
 	this.l = this.imgs.length;
 	this.timer = null;
-
+	var self = this;
 	if(this.option.effect === "fade" && this.ctrs){
 		for(var i = 0; i < this.l; i++){
-			Kg.addEvent(this.ctrs[i], this.option.event, Kg.bind(function(i){
-				this.over(i);
-			}, this, i));
+			$(sControl).bind(this.option.event,function (i) {
+				self.over(i);
+			})
 
-			Kg.addEvent(this.ctrs[i], "mouseout", Kg.bind(function(){
-				this.start();
-			}, this));
+			$(sControl).bind('mouseout',function () {
+				self.start();
+			})
 
-			Kg.addEvent(this.ctrs[i], "mouseover", Kg.bind(function(){
-				clearTimeout(this.timer);
-			}, this));
+			$(sControl).bind('mouseover',function(){
+				clearTimeout(self.timer);
+			})
 		}
 	}
 
