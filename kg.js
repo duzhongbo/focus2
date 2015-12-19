@@ -10,7 +10,7 @@
 function Focus(aTarget, aControl, opiton){
 	this.setOption(opiton);	
 	this.imgs = aTarget;
-	this.ctrs =  ctrId ? Kg.$T(ctrTag, ctrId):null;
+	this.ctrs =  aControl ? aControl:null;
 	this.l = this.imgs.length;
 	this.timer = null;
 
