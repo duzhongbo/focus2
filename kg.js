@@ -7,7 +7,7 @@
  * @param {String}  控制器元素
  * @param {Object}  参数集合（包括event,effect,scrollDir,scrollSpeed,scrollMode,timeout,index,callback）
  */ 
-function Focus(aTarget, ctrId, ctrTag, opiton){
+function Focus(aTarget, aControl, opiton){
 	this.setOption(opiton);	
 	this.imgs = aTarget;
 	this.ctrs =  ctrId ? Kg.$T(ctrTag, ctrId):null;
