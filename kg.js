@@ -87,7 +87,6 @@ Focus.prototype.start = function(){
 
 Focus.prototype.change = function(){
 	if(this.option.effect === "fade"){
-		var step = Kg.UA.Ie?3:1;
 		var _this = this;
 		var current = this.imgs[this.currentIndex];
 		this.ctrs && (this.ctrs[this.currentIndex].className = this.ctrs[this.currentIndex].className.replace(/\s*current/,""));
@@ -102,11 +101,11 @@ Focus.prototype.change = function(){
 		
 		this.option.onstart && this.option.onstart(this);
 
-		current.timer = Kg.fadeout(current, 1, step, function(){
+		current.timer = $(current).fadeOut("normal",function(){
 			_this.reset();
 			_this.start();
-			_this.option.callback && _this.option.callback(this);
-		});	
+			_this.option.callback && _this.option.callback(this);			
+		})
 	}
 
 	if(this.option.effect === "scroll"){
@@ -145,7 +144,6 @@ Focus.prototype.over = function(i){
 	clearTimeout(this.timer);
 	
 	if(this.option.effect === "fade"){
-		var step = Kg.UA.Ie?3:1;
 		var curIndex = this.currentIndex;
 		var curEl = this.imgs[curIndex];
 		var nextEl = this.imgs[i];
