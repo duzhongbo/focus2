@@ -137,7 +137,7 @@ Focus.prototype.reset = function(index){
 	var resetEl = this.imgs[index];
 	resetEl.style.cssText = "display:none; z-index:1";
 	clearInterval(resetEl.timer);
-	Kg.setOpacity(resetEl, 100);
+	$(resetEl).css("opacity",1);
 };
 
 Focus.prototype.over = function(i){
