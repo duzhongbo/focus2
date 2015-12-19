@@ -7,9 +7,9 @@
  * @param {String}  控制器元素
  * @param {Object}  参数集合（包括event,effect,scrollDir,scrollSpeed,scrollMode,timeout,index,callback）
  */ 
-function Focus(focId, focTag, ctrId, ctrTag, opiton){
+function Focus(aTarget, ctrId, ctrTag, opiton){
 	this.setOption(opiton);	
-	this.imgs = Kg.$T(focTag, focId);
+	this.imgs = aTarget;
 	this.ctrs =  ctrId ? Kg.$T(ctrTag, ctrId):null;
 	this.l = this.imgs.length;
 	this.timer = null;
@@ -75,7 +75,7 @@ Focus.prototype.setOption = function(option){
 		callback:null   //回调函数
 	};
 
-	Kg.extend(this.option, option || {}, true);
+	$.extend(this.option, option || {}, true);
 };
 
 Focus.prototype.start = function(){
