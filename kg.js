@@ -79,7 +79,8 @@ Focus.prototype.setOption = function(option){
 };
 
 Focus.prototype.start = function(){
-	this.timer = setTimeout(Kg.bind(this.change, this),this.option.timeout);
+	this.timer = setTimeout(this.change,this.option.timeout);
+	this.timer = setTimeout()
 };
 
 Focus.prototype.change = function(){
